@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Prueba de JavaScripts</title>
+        <script src="script.js">
+        </script>
+    </head>
+
+    <body>
+        <h1 id="miH1" onclick="alert('Hemos creado el texto Te saludo y ahora lo modificamos');
+        document.getElementById('miH1').innerHTML='Te saludo mucho';">
+            Te saludo
+        </h1>
+        <br/>
+        Introduzca el primer número: 
+        <input type="text" id ="texto1"/>
+        <br/>
+        Introduzca el segundo número: 
+        <input type="text" id ="texto2"/>
+
+        <br/><br/>
+        <h1 id = "suma">Resultado: 0</h1>
+        <input type="button" onclick="sumar()" value="SUMAR"/>
+    </body>
+
+</html>
