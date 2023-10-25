@@ -10,7 +10,7 @@ function crearVentana()
     var ventana = window.open("", nombreVentana, "width=400,height=200");
 
     // MODIFICAMOS LA VENTANA
-    ventana.document.write("<h1>Nueva Ventana</h1><br/><h2>Ventana NUM: "+numVentanas+"</h2>");
+    ventana.document.write("<title>Ventana NUM"+numVentanas+"</title><h1>Nueva Ventana</h1><br/><h2>Ventana NUM: "+numVentanas+"</h2>");
 
 }
 
@@ -40,5 +40,14 @@ function cerrarTodasLasVentanas()
             ventana.close();
             numVentanas = numVentanas - 1;
         }
+    }
+}
+
+function crearMultiples()
+{
+    var numIntro = Number(document.getElementById("numIntro").value);
+    for (var i = 0; i < numIntro; i++)
+    {
+        crearVentana();
     }
 }

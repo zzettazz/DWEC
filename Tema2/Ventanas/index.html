@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Ejercicio Ventana Emergente</title>
-</head>
-<body>
-    <h1>CREAR VENTANA EMERGENTE</h1><br/>
-    <button id="abrirVentana" onclick="crearVentana()">Abrir Ventana</button>
-    <button id="cerrarVentana" onclick="cerrarVentana()">Cerrar Ventana</button>
-    <br/><br/>
-    <button id="cerrarVentanas" onclick="cerrarTodasLasVentanas()">Cerrar todas</button>
+    <head>
+        <title>Ejercicio Ventana Emergente</title>
+    </head>
+
+    <body>
+        <h1>CREAR VENTANA EMERGENTE</h1><br/>
+        <button id="abrirVentana" onclick="crearVentana()">Abrir Ventana</button>
+        <button id="cerrarVentana" onclick="cerrarVentana()">Cerrar Ventana</button>
+        <br/><br/>
+        <button id="cerrarVentanas" onclick="cerrarTodasLasVentanas()">Cerrar todas</button>
+        <br/><br/>
+        Crear Multiples ventanas<input type="text" id="numIntro"/><input type="button" value="CREAR" onclick="crearMultiples()"/>
+    </body>
+
     <script src="script.js"></script>
-</body>
 </html>
