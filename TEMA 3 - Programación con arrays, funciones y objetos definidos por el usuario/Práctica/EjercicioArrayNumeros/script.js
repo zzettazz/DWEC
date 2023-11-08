@@ -60,13 +60,15 @@ function generarRespuesta(indice,posicionArray)
     miRespuesta += "<br/><br/>";
 
     miRespuesta += "<h3>ORDEN ASCENDENTE</h3>";
-    var arrayAscentente = arrayNumeros.sort((a, b) => a - b);
+    var arrayAscentente = arrayNumeros.slice();
+    arrayAscentente.sort((a, b) => a - b);
     miRespuesta+= arrayAscentente
 
     miRespuesta += "<br/><br/>";
 
-    miRespuesta += "<h3>ORDEN DESCENDENTE</h3>"
-    var arrayDescendente = arrayNumeros.sort((a, b) => b - a);
+    miRespuesta += "<h3>ORDEN DESCENDENTE</h3>";
+    var arrayDescendente = arrayNumeros.slice();
+    arrayDescendente.sort((a, b) => b - a);
     miRespuesta += arrayDescendente;
 
     document.getElementById("respuesta").innerHTML = miRespuesta;
