@@ -77,9 +77,9 @@ function generarRespuesta(indice,posicionArray)
 
 function realizarAccion(accion)
 {
-    var numeroRecogido = parseInt(document.getElementById("numeroTexto").value);
+    var numeroRecogido = document.getElementById("numeroTexto").value;
     
-    if (numeroRecogido != NaN)
+    if (!isNaN(numeroRecogido))
     {
         if (accion == "alta")
         {
