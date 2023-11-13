@@ -83,20 +83,64 @@ function realizarAccion(accion)
     {
         if (accion == "alta")
         {
-            arrayNumeros.push(numeroRecogido);
+            console.log("Accion: alta");
+            arrayNumeros.push(parseInt(numeroRecogido));
             generarRespuesta(indiceActual,posicionActual);
         }
         else if (accion == "baja")
         {
+            console.log("Accion: Baja");
+
+            var esUltimo = false;
+            var esPrimero = false;
+
+            if (indiceActual == (arrayNumeros.length-1)) esUltimo = true;
+            else if (indiceActual == 0) esPrimero = true;
+
             arrayNumeros = arrayNumeros.filter(elemento => elemento != numeroRecogido);
+            if (esUltimo)
+            {
+                indiceActual = (arrayNumeros.length-1);
+                posicionActual = arrayNumeros[indiceActual];
+            }
+            else if (esPrimero)
+            {
+                indiceActual = 0;
+                posicionActual = arrayNumeros[indiceActual];
+            }
+
             generarRespuesta(indiceActual,posicionActual);
         }
         else if (accion == "modificacion")
-        {
+        {            
+            console.log("Accion: Modificación");
+            if (arrayNumeros.includes(parseInt(numeroRecogido)))
+            {
+                console.log("El número '"+parseInt(numeroRecogido)+"' existe");
+                document.getElementById("cajasTexto").innerHTML = "<h2>Número: <input type=\"text\" id=\"numeroTexto\" placeholder=\"Introduzca un número\" disabled /></h2>"+
+                "<h2>Nuevo Número: <input type=\"text\" id=\"numeroTextoNuevo\" placeholder=\"Introduzca un número\"/></h2><br/>"+
+                "<input type=\"button\" value=\"Confirmar modificacion\" onclick=\"confirmarModificacion()\"/>";
+                document.getElementById("numeroTexto").value = numeroRecogido;
 
+                document.getElementById("botones").innerHTML = "<input type=\"button\" value=\"Primera\" onclick=\"cambiarPosicion('primera')\" disabled />"+
+                "<input type=\"button\" value=\"&lt;&lt; Anterior\" onclick=\"cambiarPosicion('anterior')\" disabled />"+
+                "<input type=\"button\" value=\"Siguiente &gt;&gt;\" onclick=\"cambiarPosicion('siguiente')\" disabled />"+
+                "<input type=\"button\" value=\"Última\" onclick=\"cambiarPosicion('ultima')\" disabled />"+
+                "<br/><br/>"+
+                "<input type=\"button\" value=\"Alta\" onclick=\"realizarAccion('alta')\" disabled />"+
+                "<input type=\"button\" value=\"Baja\" onclick=\"realizarAccion('baja')\" disabled />"+
+                "<input type=\"button\" value=\"Modificación\" onclick=\"realizarAccion('modificacion')\" disabled />"+
+                "<input type=\"button\" value=\"Listado\" onclick=\"realizarAccion('listado')\" disabled />";
+            }
+            else
+            {
+                document.getElementById("numeroTexto").value = "";
+                console.log("El número '"+parseInt(numeroRecogido)+"' no existe");
+            }
         }
         else if (accion == "listado")
         {
+            console.log("Accion: Litado");
             generarTabla();
         }
     }
@@ -116,4 +160,44 @@ function generarTabla()
     }
 
     document.getElementById("respuesta").innerHTML = tabla;
+}
+
+function confirmarModificacion()
+{
+    var numeroAntiguo = document.getElementById("numeroTexto").value;
+    var numeroNuevo = document.getElementById("numeroTextoNuevo").value;
+
+    console.log("Numero antiguo: "+numeroAntiguo);
+    console.log("Numero nuevo: "+numeroNuevo);
+
+    if (!isNaN(numeroAntiguo) && !isNaN(numeroNuevo))
+    {
+        for (var i = 0; i<arrayNumeros.length; i++)
+        {
+            if (arrayNumeros[i] == parseInt(numeroAntiguo))
+            {
+                arrayNumeros[i] = parseInt(numeroNuevo);
+            }
+        }
+        document.getElementById("cajasTexto").innerHTML = "<h2>Número: <input type=\"text\" id=\"numeroTexto\" placeholder=\"Introduzca un número\" /></h2>";
+        document.getElementById("numeroTexto").value = "";
+
+        document.getElementById("botones").innerHTML = "<input type=\"button\" value=\"Primera\" onclick=\"cambiarPosicion('primera')\" />"+
+        "<input type=\"button\" value=\"&lt;&lt; Anterior\" onclick=\"cambiarPosicion('anterior')\" />"+
+        "<input type=\"button\" value=\"Siguiente &gt;&gt;\" onclick=\"cambiarPosicion('siguiente')\" />"+
+        "<input type=\"button\" value=\"Última\" onclick=\"cambiarPosicion('ultima')\" />"+
+        "<br/><br/>"+
+        "<input type=\"button\" value=\"Alta\" onclick=\"realizarAccion('alta')\" />"+
+        "<input type=\"button\" value=\"Baja\" onclick=\"realizarAccion('baja')\" />"+
+        "<input type=\"button\" value=\"Modificación\" onclick=\"realizarAccion('modificacion')\" />"+
+        "<input type=\"button\" value=\"Listado\" onclick=\"realizarAccion('listado')\" />";
+
+        posicionActual = arrayNumeros[indiceActual];
+
+        generarRespuesta(indiceActual,posicionActual);
+    }
+    else
+    {
+        alert("Debes introducir un número");
+    }
 }
