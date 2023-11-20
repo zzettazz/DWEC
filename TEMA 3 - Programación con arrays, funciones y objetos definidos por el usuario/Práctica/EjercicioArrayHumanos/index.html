@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <title>Ejercicio Humanos</title>
+    </head>
+
+    <body>
+        Nombre: <input type="text" id="nombre" disabled><br/>
+        Peso: <input type="text" id="peso" disabled><br/>
+        Edad: <input type="text" id="edad" disabled><br/><br/>
+        <button id="primero" onclick="realizarAccion('primero')">Primero</button>
+        <button id="anterior" onclick="realizarAccion('anterior')"><< Anterior</button>
+        <button id="siguiente" onclick="realizarAccion('siguiente')">Siguiente >></button>
+        <button id="ultimo" onclick="realizarAccion('ultimo')">Último</button>
+        <br/>
+        <button id="alta" onclick="realizarAccion('alta')">Alta</button>
+        <button id="baja" onclick="realizarAccion('baja')">Baja</button>
+        <button id="modificacion" onclick="realizarAccion('modificacion')">Modificacion</button>
+        <button id="listado" onclick="realizarAccion('listado')">Listado</button>
+        <button id="otroListado" onclick="realizarAccion('otrolistado')">Otro Listado</button>
+        <button id="muestraPersona" onclick="realizarAccion('muestrapersona')">Muestra una persona</button>
+        <div id="botonesAccion"></div>
+    </body>
+    <script src="script.js"></script>
+</html>
