@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <title>Ejercicio Persona</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+        Nombre: <input type="text" id="nombre" disabled><br/>
+        Apellidos: <input type="text" id="apellidos" disabled><br/>
+        Direccion: <input type="text" id="direccion" disabled><br/>
+        Fecha de Nacimiento: <input type="text" id="fechaNacimiento" disabled><br/>
+        Género:
+        <select id="genero" disabled>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+            <option value="nsnc">Prefiero no contestar</option>
+        </select><br/>
+        Código Postal: <input type="text" id="codigoPostal" disabled>
+        <br/>
+        <br/>
+        <button id="anterior" onclick="ejecutarAccion('anterior')"><< Anterior</button>
+        <button id="siguiente" onclick="ejecutarAccion('siguiente')">Siguiente >></button>
+        <br/>
+        <button id="alta" onclick="ejecutarAccion('alta')">Alta</button>
+        <button id="baja" onclick="ejecutarAccion('baja')">Baja</button>
+        <button id="modificacion" onclick="ejecutarAccion('modificarPersona')">Modificación</button>
+        <button id="listado" onclick="ejecutarAccion('mostrarListado')">Listado</button>
+        <div id="botonesAccion"></div>
+    </body>
+
+    <script src="script.js"></script>
+
+</html>
