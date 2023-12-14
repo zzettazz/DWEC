@@ -21,8 +21,8 @@ function horaValida(hora)
     return (miExpresionRegularHoras.test(hora) && hora.length == 8);
 }
 */
-var miFecha = "1/5/2004";
-var miExpresionFecha = /(0?[1-9]|1[0-9]|2[0-9]|3[0-1])\/(0?[1-9]|1[1-2])\/[1-2][0-9]{3}/;
+var miFecha = "1-5-2004";
+var miExpresionFecha = /(0?[1-9]|1[0-9]|2[0-9]|3[0-1])\/(0?[1-9]|1[1-2])\/[1-2][0-9]{3}|(0?[1-9]|1[0-9]|2[0-9]|3[0-1])-(0?[1-9]|1[1-2])-[1-2][0-9]{3}/;
 
 if (fechaValida(miFecha)) console.log("Fecha válida");
 else console.log("Fecha NO VÁLIDA");
