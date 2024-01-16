@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio Opciones</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+        Introduzca un texto. <input type="text" id="texto" oninput="comprobarTexto()"/>
+        <input type="button" value="Añadir" disabled id="botonAñadir" onclick="agregarOpcion()">
+
+        <br/>
+
+        <select name="opciones" id="listaIzquierda" multiple>
+        </select>
+        
+        <input type="button" onclick="pasarSeleccionadosADerecha()" value=">>" />
+        <input type="button" onclick="pasarSeleccionadosAIzquierda()" value="<<" />
+        <input type="button" onclick="todasADerecha()" value=">>|" />
+        <input type="button" onclick="todasAIzquierda()" value="|<<" />
+        <input type="button" onclick="eliminarOpcionesDerecha()" value="x1" />
+        <input type="button" onclick="eliminarOpcionesIzquierda()" value="x2" />
+
+        <select name="opciones" id="listaDerecha" multiple>
+        </select>
+
+        <br/>
+
+        <input type="button" onclick="copiarAIzquierda()" value="Copiar a la Izquierda" />
+        <input type="button" onclick="copiarADerecha()" value="Copiar a la Derecha" />
+        <br/>
+        <input type="button" onclick="borrarSeleccionadoIzquierda()" value="Borrar a la Izquierda" />
+        <input type="button" onclick="borrarSeleccionadoDerecha()" value="Borrar a la Derecha" />
+    </body>
+
+    <script src="script.js"></script>
+
+</html>
