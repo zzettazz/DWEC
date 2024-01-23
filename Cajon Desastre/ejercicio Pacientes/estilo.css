@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+}
+
+body {
+    text-align: center;
+}
+
+fieldset {
+    margin: 0 auto;
+    width: 40vw;
+}
+
+.formulario {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.listas {
+    margin-bottom: 1vh;
+}

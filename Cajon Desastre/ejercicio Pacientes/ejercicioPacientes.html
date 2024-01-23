@@ -4,32 +4,45 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Check Box</title>
+        <title>Ejercicio Pacientes</title>
+        <link rel="stylesheet" href="estilo.css">
     </head>
 
     <body>
         <h1>Ejercicio Pacientes</h1>
+        <div class="formulario">
+            Nombre: <input type="text" id="nombre" oninput="habilitarDni()"><br/>
+            DNI: <input type="text" id="dni" disabled><br/>
+            Tipo:
+            <select id="tipo">
+                <option value="preoperatorio">Pre-operatorio</option>
+                <option value="posoperatorio">Post-operatorio</option>
+            </select>
+            <br/>
+            <input type="button" id="registrar" value="Registrar Paciente" onclick="crearPaciente()" disabled>
+        </div>
 
-        Nombre: <input type="text" id="nombre" oninput="habilitarDni()"><br/>
-        DNI: <input type="text" id="dni" disabled><br/>
-        Tipo:
-        <select id="tipo">
-            <option value="preoperatorio">Pre-operatorio</option>
-            <option value="posoperatorio">Post-operatorio</option>
-        </select>
+        <div class="listas">
+            <fieldset>
+                <legend>Preoperatorio</legend>
+                <select id="pre-operatorio" multiple></select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Postoperatorio</legend>
+                <select id="post-operatorio" multiple></select>
+            </fieldset>
+        </div>
+
+        <input type="button" value="Mover a Pre-operatorio"/>
+        <input type="button" value="Mover a Post-operatorio"/>
         <br/>
-        <input type="button" id="registrar" value="Registrar Paciente" onclick="crearPaciente()" disabled>
-
-        <fieldset>
-            <legend>Preoperatorio</legend>
-            <select id="pre-operatorio" multiple></select>
-        </fieldset>
-
-        <fieldset>
-            <legend>Postoperatorio</legend>
-            <select id="post-operatorio" multiple></select>
-        </fieldset>
-
+        <input type="button" value="Modificar Pre-operatorio" />
+        <input type="button" value="Modificar Post-operatorio" />
+        <br/>
+        <input type="button" value="Crear un Listado" />
     </body>
+
     <script src="script.js"></script>
+
 </html>
