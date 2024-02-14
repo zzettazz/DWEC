@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio Personas y vehiculos</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+        <h1>Ejercicio Personas y vehículos</h1>
+        <div class="formularios">
+            <fieldset class="personas">
+                <legend>Personas</legend>
+                <fieldset>
+                    <legend>Dar de Alta</legend>
+                    <form id="altaPersonas" action="#" onsubmit="darAltaPersona(event)" onreset="">
+                        Nombre: <input oninput="validarNombre()" type="text" name="nombre">
+                        <br/>
+                        DNI: <input type="text" oninput="validarDNI()" name="dni" disabled>
+                        <br/>
+                        Sexo: 
+                        <select name="sexo" disabled>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="nsnc">NS/NC</option>
+                        </select>
+                        <br/>
+                        Fecha de nacimiento: <input type="text" name="fechaNacimiento" oninput="validarFecha()" disabled>
+                        <br/>
+                        <input type="submit" value="Dar de alta" name="botonConfirmar" disabled><input type="reset" value="Cancelar Alta" name="botonCancelar" disabled>
+                    </form>
+                </fieldset>
+                <fieldset disabled id="fieldsetModificarPersona">
+                    <legend>Modificar una persona</legend>
+                    <form id="modificarPersonas" onsubmit="" onreset="">
+                        Nombre: <input type="text" name="nombre">
+                        <br/>
+                        DNI: <input type="text" name="dni" disabled>
+                        <br/>
+                        Sexo: 
+                        <select name="sexo">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="nsnc">NS/NC</option>
+                        </select>
+                        <br/>
+                        Fecha de nacimiento: <input type="text" name="fechaNacimiento">
+                        <br/>
+                        <input type="submit" value="Confirmar"><input type="reset" value="Cancelar">
+                    </form>
+                </fieldset>
+                <input type="button" value="Listar Personas">
+            </fieldset>
+
+            <fieldset class="vehiculos">
+                <legend>Vehiculos</legend>
+                <fieldset>
+                    <legend>Dar de Alta</legend>
+                    <form id="altaVehiculos" onsubmit="" onreset="">
+                        Matrícula: <input type="text" name="nombre">
+                        <br/>
+                        Nº Bastidor: <input type="text" name="dni">
+                        <br/>
+                        Dueño: <input type="text" name="dueño">
+                        <br/>
+                        Tipo: 
+                        <select name="tipo">
+                            <option selected="selected" value="sinDefinir">Sin definir</option>
+                            <option value="camion">Camión</option>
+                            <option value="coche">Coche</option>
+                            <option value="moto">Moto</option>
+                            <option value="avion">Avión</option>
+                            <option value="furgoneta">Furgoneta</option>
+                        </select>
+                        <br/>
+                        <input type="submit" value="Dar de alta"><input type="reset" value="Cancelar Alta">
+                    </form>
+                </fieldset>
+                <fieldset disabled id="fieldsetModificarVehiculo">
+                    <legend>Modificar un vehículo</legend>
+                    <form id="modificarVehiculos" onsubmit="" onreset="">
+                        Matrícula: <input type="text" name="nombre">
+                        <br/>
+                        Nº Bastidor: <input type="text" name="dni">
+                        <br/>
+                        Dueño: <input type="text" name="dueño">
+                        <br/>
+                        Tipo: 
+                        <select name="tipo">
+                            <option selected="selected" value="sinDefinir">Sin definir</option>
+                            <option value="camion">Camión</option>
+                            <option value="coche">Coche</option>
+                            <option value="moto">Moto</option>
+                            <option value="avion">Avión</option>
+                            <option value="furgoneta">Furgoneta</option>
+                        </select>
+                        <br/>
+                        <input type="submit" value="Confirmar"><input type="reset" value="Cancelar">
+                    </form>
+                </fieldset>
+                <input type="button" value="Listar Vehiculos">
+            </fieldset>
+        </div>
+        <br/><br/>
+        <h1>----------------------------------------</h1>
+        <br/><br/>
+        <div id="tablaPersonas"></div>
+        <div id="tablaVehiculos"></div>
+    </body>
+
+    <script src="script.js"></script>
+    
+</html>

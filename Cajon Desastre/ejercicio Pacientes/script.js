@@ -43,6 +43,8 @@ class Paciente {
       
 }
 
+var letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+
 var arrayPacientes = [
     new Paciente("Juan","94736521Z","preoperatorio"),
     new Paciente("Antonio","12345678S","preoperatorio"),
@@ -93,6 +95,10 @@ function crearPaciente()
 
     // 4. ACTUALIZAMOS LAS LISTAS PARA MOSTRAR LOS CAMBIOS
     actualizarListas();
+
+    // 5. VOLVEMOS AL ESTADO POR DEFECTO
+    document.getElementById("dni").disabled = true;
+    document.getElementById("registrar").disabled = true;
 }
 
 function actualizarListas()
@@ -105,7 +111,7 @@ function actualizarListas()
 
     var pacientesPreoperatorio = "";
     listaPreoperatorio.forEach(paciente => {
-        pacientesPreoperatorio += ("<option>" + paciente.getNombre() + "(" + paciente.getDni() + ")</option>");
+        pacientesPreoperatorio += ("<option value=\""+paciente.getDni()+"\">" + paciente.getNombre() + "(" + paciente.getDni() + ")</option>");
     });
 
     // 2. PONEMOS LAS OPCIONES EN LAS LISTAS
@@ -122,11 +128,48 @@ function habilitarDni()
     if ( ( texto.trim() != "" ) && ( !numeros.test(texto) ) )
     {
         document.getElementById("dni").disabled = false;
-        document.getElementById("registrar").disabled = false;
     }
     else {
         document.getElementById("dni").disabled = true;
+    }
+}
+
+function habilitarRegistro()
+{
+    var dniIntroducido = document.getElementById("dni").value;
+    var formato = /\d{8}[a-zA-Z]{1}/;
+
+    if ( (dniIntroducido.trim() != "") && (formato.test(dniIntroducido)) && letraDNICorrecta(dniIntroducido))
+    {
+        document.getElementById("registrar").disabled = false;
+    }
+    else
+    {
         document.getElementById("registrar").disabled = true;
     }
 }
 
+function letraDNICorrecta(dni)
+{
+    var numeros = dni.substring( 0, (dni.length-1) );
+
+    var resto = numeros % 23;
+
+    var letraDNI = letrasDNI[resto];
+
+    if ( letraDNI == dni.charAt(dni.length-1) )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function moverAPreoperatorio()
+{
+    var dniPacienteSeleccionado = document.getElementById("post-operatorio").value;
+
+    
+}

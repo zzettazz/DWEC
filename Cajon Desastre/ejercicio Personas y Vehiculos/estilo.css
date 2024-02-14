@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+.personas {
+    text-align: center;
+    width: 30vw;
+}
+
+.personas fieldset {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.vehiculos {
+    text-align: center;
+    width: 30vw;
+}
+
+.vehiculos fieldset {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.formularios {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    margin: 0 auto;
+    margin-bottom: 2vh;
+}
+
+table tr, table td {
+    padding: 1vh;
+}
+
+img {
+    height: 40px;
+}

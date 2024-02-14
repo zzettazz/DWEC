@@ -12,7 +12,7 @@
         <h1>Ejercicio Pacientes</h1>
         <div class="formulario">
             Nombre: <input type="text" id="nombre" oninput="habilitarDni()"><br/>
-            DNI: <input type="text" id="dni" disabled><br/>
+            DNI: <input type="text" id="dni" oninput="habilitarRegistro()" disabled><br/>
             Tipo:
             <select id="tipo">
                 <option value="preoperatorio">Pre-operatorio</option>
@@ -34,8 +34,8 @@
             </fieldset>
         </div>
 
-        <input type="button" value="Mover a Pre-operatorio"/>
-        <input type="button" value="Mover a Post-operatorio"/>
+        <input type="button" onclick="moverAPreoperatorio()" value="Mover a Pre-operatorio"/>
+        <input type="button" onclick="moverAPostoperatorio()" value="Mover a Post-operatorio"/>
         <br/>
         <input type="button" value="Modificar Pre-operatorio" />
         <input type="button" value="Modificar Post-operatorio" />

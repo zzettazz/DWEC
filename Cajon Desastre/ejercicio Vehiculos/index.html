@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio Vehiculos</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+    <body>
+        <h1>Ejercicio Vehiculos</h1>
+        <div class="misFieldset">
+            <fieldset class="alta">
+                <legend>Dar de alta un Vehículo</legend>
+                Número de bastidor: <input type="text" id="bastidorAlta" oninput="comprobarBastidorAlta()"/>
+                <br/>
+                Matrícula: <input type="text" id="matriculaAlta" oninput="comprobarMatriculaAlta()" disabled />
+                <br/>
+                Tipo:
+                <select id="tipoAlta">
+                    <option value="coche">Coche</option>
+                    <option value="moto">Moto</option>
+                    <option value="furgoneta">Furgoneta</option>
+                    <option value="camion">Camión</option>
+                </select>
+                <br/>
+                <input type="button" value="Dar de alta" id="botonAlta" onclick="darAlta()" disabled/>
+            </fieldset>
+            <fieldset class="modificacion">
+                <legend>Modificar un vehículo existente</legend>
+                Número de bastidor: <input type="text" id="bastidorModificacion" disabled />
+                <br/>
+                Matrícula: <input type="text" id="matriculaModificacion" oninput="comprobarMatriculaModificacion()"  disabled />
+                <br/>
+                Tipo:
+                <select id="tipoModificacion" disabled >
+                    <option value="coche">Coche</option>
+                    <option value="moto">Moto</option>
+                    <option value="furgoneta">Furgoneta</option>
+                    <option value="camion">Camión</option>
+                </select>
+                <br/>
+                <input type="button" value="Confirmar modificación" id="botonConfirmarModificacion" onclick="confirmarModificacion()" disabled/>
+                <input type="button" value="Cancelar modificación" id="botonCancelarModificacion" onclick="cancelarModificacion()" disabled />
+            </fieldset>
+        </div>
+        <br/><br/>
+        <input type="button" value="Listar vehículos en ventana" onclick="Vehiculo.listarVehiculos()">
+        <br/><br/>
+        <div id="tabla"></div>
+    </body>
+
+    <script src="script.js"></script>
+
+</html>
