@@ -1,15 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { Zapatilla } from "../models/zapatillas";
 @Component({
     selector: "zapatillas",
     templateUrl: "./zapatillas.component.html"
 })
-export class zapatillasComponent implements OnInit{
+export class zapatillasComponent{
     public titulo:string;
     public listado:string;
     public zapatillas:Array<Zapatilla>;
     public marcas:Array<string>;
     public mi_marca:string;
+
     constructor()
     {
         this.marcas= new Array;
@@ -23,21 +24,10 @@ export class zapatillasComponent implements OnInit{
             new Zapatilla ("2002r", "New Balance","Rosas", 150, true)
 
         ]
+
+        this.marcas = Array.from(new Set(this.zapatillas.map(zapatilla => (zapatilla.marca[0].toUpperCase() + zapatilla.marca.substring(1,zapatilla.marca.length).toLowerCase()))));
     }
-    ngOnInit(): void {
-        this.getMarca();
-    }
-    getMarca()
-    {
-        this.zapatillas.forEach((zapatillas, index) =>
-        {
-            if(this.marcas.indexOf(zapatillas.marca)<0)
-            {
-                this.marcas.push(zapatillas.marca);
-            }
-        }
-    )
-    }
+    
     getMarcas()
     {
         alert(this.mi_marca);
