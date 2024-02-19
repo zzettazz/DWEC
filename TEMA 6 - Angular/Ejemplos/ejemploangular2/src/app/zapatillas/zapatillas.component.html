@@ -1,0 +1,28 @@
+<h2>{{titulo}}</h2>
+<p>Añadir marca</p>
+<p>
+    <input type="text" [(ngModel)] ="mi_marca"/>
+    <input type="button" (click)="getMarcas()" value="Mi marca">
+    <input type="button" (click)="addMarca()" value="Añadir marca">
+</p>
+<p>Comprar zapatillas de las mejores marcas</p>
+<ul>
+    <li *ngFor="let miMarca of marcas">{{miMarca}}
+
+    </li>
+</ul>
+<h3>{{listado}}</h3>
+<ul>
+    <li *ngFor="let deportivas of zapatillas">
+        <span [ngStyle]="{
+            'text-decoration':!deportivas.stock ?'line-through' : 'none'
+        }">
+
+
+        {{deportivas.nombre}} -- <strong>{{deportivas.precio}}</strong>
+    </span>
+        <span *ngIf="deportivas.precio <= 120" [style.color] ="deportivas.precio <= 120 ? 'blue' : 'black'">
+        <strong> En oferta!</strong>
+        </span>
+    </li>
+</ul>
